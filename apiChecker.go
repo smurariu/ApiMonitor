@@ -5,7 +5,6 @@ import (
 	"log"
 	"time"
 
-	"./playerCheck"
 	"github.com/influxdata/influxdb/client/v2"
 )
 
@@ -30,13 +29,15 @@ func main() {
 	ticker := time.NewTicker(5000 * time.Millisecond)
 	for t := range ticker.C {
 		fmt.Print(t)
-		results := playerCheck.ExecuteChecks()
-		writeToInflux(c, results)
-		fmt.Printf(" %s\n", results)
+		checks := LoadChecks("checks.json")
+		checksOutcomes := Execute(checks)
+
+		writeToInflux(c, checksOutcomes)
+		fmt.Printf(" %s\n", checksOutcomes)
 	}
 }
 
-func writeToInflux(c client.Client, results [2]playerCheck.Execution) {
+func writeToInflux(c client.Client, results []ExecutionOutcome) {
 
 	// Create a new point batch
 	bp, err := client.NewBatchPoints(client.BatchPointsConfig{
