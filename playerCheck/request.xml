@@ -1,0 +1,44 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <GetProductOffers xmlns="http://www.bewotec.de/bewotecws/Schema">
+      <GetProductOffersRequest>
+        <AuthKey>X4$tUpio</AuthKey>
+        <Currency>EUR</Currency>
+        <ProductType>Package</ProductType>
+        <TreeId/>
+        <Accommodation>
+          <ProductCodes>
+            <ProductCode>DPAGIOVASA</ProductCode>
+          </ProductCodes>
+        </Accommodation>
+        <Passengers>
+          <Passenger> 
+            <Id>1</Id>
+            <DateOfBirth>1985-08-26T00:00:00+02:00</DateOfBirth>
+            <PassengerCode>Adult</PassengerCode>
+          </Passenger>
+          <Passenger>
+            <Id>2</Id>
+            <DateOfBirth>1985-08-26T00:00:00+02:00</DateOfBirth>
+            <PassengerCode>Adult</PassengerCode>
+          </Passenger>
+        </Passengers>
+        <Period>
+          <Start>
+            <Date>2018-09-04T00:00:00</Date>
+            <PostOffset>P0D</PostOffset>
+          </Start>
+          <End xsi:nil="true"/>
+          <Durations>
+            <Duration>P7D</Duration>
+          </Durations>
+        </Period>
+        <GeoLocation xsi:nil="true"/>
+        <Price xsi:nil="true"/>
+        <ResultsFrom>1</ResultsFrom>
+        <ResultsTo>2147483647</ResultsTo>
+        <ResultsTotal>2147483647</ResultsTotal>
+      </GetProductOffersRequest>
+    </GetProductOffers>
+  </s:Body>
+</s:Envelope>
