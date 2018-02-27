@@ -38,30 +38,44 @@ func main() {
 }
 
 func writeToInflux(c client.Client, results []ExecutionOutcome) {
+	groupedResults := make(map[string]map[string][]ExecutionOutcome)
 
-	// Create a new point batch
+	for _, result := range results {
+		if groupedResults[result.Environment] == nil {
+			groupedResults[result.Environment] = make(map[string][]ExecutionOutcome)
+		}
+
+		groupedResults[result.Environment][result.APIName] = append(groupedResults[result.Environment][result.APIName], result)
+	}
+	// Create a new points batch
 	bp, err := client.NewBatchPoints(client.BatchPointsConfig{
 		Database:  myDB,
 		Precision: "s",
 	})
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	// Create a point and add to batch
-	tags := map[string]string{"env": "ACPT"}
-	fields := map[string]interface{}{
-		results[0].Name: int64(results[0].Duration / time.Millisecond),
-		results[1].Name: int64(results[1].Duration / time.Millisecond),
-	}
-
-	pt, err := client.NewPoint("Player", tags, fields, time.Now())
 
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	bp.AddPoint(pt)
+	for env, envCheckResults := range groupedResults {
+		tags := map[string]string{"env": env}
+		for apiName, apiCheckResults := range envCheckResults {
+			fields := make(map[string]interface{})
+
+			for _, apiCheckResult := range apiCheckResults {
+				// Create a point and add to batch
+				fields[apiCheckResult.Name] = int64(apiCheckResult.Duration / time.Millisecond)
+			}
+
+			pt, err := client.NewPoint(apiName, tags, fields, time.Now())
+
+			if err != nil {
+				log.Fatal(err)
+			}
+
+			bp.AddPoint(pt)
+		}
+	}
 
 	// Write the batch
 	if err := c.Write(bp); err != nil {

@@ -17,6 +17,8 @@ type Header struct {
 //Check defines a check to be performed
 type Check struct {
 	Name       string
+	Env        string
+	APIName    string
 	TargetURL  string
 	HTTPMethod string
 	Headers    []Header

@@ -10,8 +10,10 @@ import (
 
 // ExecutionOutcome represents the outcome of a check
 type ExecutionOutcome struct {
-	Name     string
-	Duration time.Duration
+	Name        string
+	Duration    time.Duration
+	Environment string
+	APIName     string
 }
 
 // Execute runs the actual checks
@@ -55,5 +57,5 @@ func executeCheck(check Check, executionOutcome chan ExecutionOutcome) {
 	t1 := time.Now()
 	hc.Do(req)
 
-	executionOutcome <- ExecutionOutcome{Name: check.Name, Duration: time.Now().Sub(t1)}
+	executionOutcome <- ExecutionOutcome{Name: check.Name, Duration: time.Now().Sub(t1), APIName: check.APIName, Environment: check.Env}
 }
