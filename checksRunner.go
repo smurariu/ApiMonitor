@@ -48,7 +48,11 @@ func executeCheck(check Check, executionOutcome chan ExecutionOutcome) {
 		body = b
 	}
 
-	req, _ := http.NewRequest(check.HTTPMethod, check.TargetURL, body)
+	req, err := http.NewRequest(check.HTTPMethod, check.TargetURL, body)
+
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	for i := 0; i < len(check.Headers); i++ {
 		req.Header.Add(check.Headers[i].Name, check.Headers[i].Value)

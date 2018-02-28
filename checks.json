@@ -29,5 +29,254 @@
             }
         ],
         "body": "request.xml"
+    },
+
+    {
+        "env": "PROD",
+        "apiName": "Player_DE_Indexer",
+        "name": "ping",
+        "targetUrl": "http://10.110.16.16:81/Bewo.Hub.Service/BewotecHubService.svc",
+        "httpMethod": "POST",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+            }
+        ]
+    },
+    {
+        "env": "PROD",
+        "apiName": "Player_DE_Indexer",
+        "name": "getPrices",
+        "targetUrl": "http://10.110.16.16:81/Bewo.Hub.Service/BewotecHubService.svc",
+        "httpMethod": "POST",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+            },
+            {
+                "name": "SOAPAction",
+                "value": "http://www.bewotec.de/bewotecws/Schema/BewotecHubService/GetProductOffers"
+            }
+        ],
+        "body": "request.xml"
+    },
+    {
+        "env": "PROD",
+        "apiName": "Player_DE_1",
+        "name": "ping",
+        "targetUrl": "http://10.110.16.17:81/Bewo.Hub.Service/BewotecHubService.svc",
+        "httpMethod": "POST",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+            }
+        ]
+    },
+    {
+        "env": "PROD",
+        "apiName": "Player_DE_1",
+        "name": "getPrices",
+        "targetUrl": "http://10.110.16.17:81/Bewo.Hub.Service/BewotecHubService.svc",
+        "httpMethod": "POST",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+            },
+            {
+                "name": "SOAPAction",
+                "value": "http://www.bewotec.de/bewotecws/Schema/BewotecHubService/GetProductOffers"
+            }
+        ],
+        "body": "request.xml"
+    },
+    {
+        "env": "PROD",
+        "apiName": "Player_DE_2",
+        "name": "ping",
+        "targetUrl": "http://10.110.16.18:81/Bewo.Hub.Service/BewotecHubService.svc",
+        "httpMethod": "POST",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+            }
+        ]
+    },
+    {
+        "env": "PROD",
+        "apiName": "Player_DE_2",
+        "name": "getPrices",
+        "targetUrl": "http://10.110.16.18:81/Bewo.Hub.Service/BewotecHubService.svc",
+        "httpMethod": "POST",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+            },
+            {
+                "name": "SOAPAction",
+                "value": "http://www.bewotec.de/bewotecws/Schema/BewotecHubService/GetProductOffers"
+            }
+        ],
+        "body": "request.xml"
+    },
+    {
+        "env": "PROD",
+        "apiName": "Player_DE_LB",
+        "name": "ping",
+        "targetUrl": "http://10.110.22.16:81/Bewo.Hub.Service/BewotecHubService.svc",
+        "httpMethod": "POST",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+            }
+        ]
+    },
+    {
+        "env": "PROD",
+        "apiName": "Player_DE_LB",
+        "name": "getPrices",
+        "targetUrl": "http://10.110.22.16:81/Bewo.Hub.Service/BewotecHubService.svc",
+        "httpMethod": "POST",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+            },
+            {
+                "name": "SOAPAction",
+                "value": "http://www.bewotec.de/bewotecws/Schema/BewotecHubService/GetProductOffers"
+            }
+        ],
+        "body": "request.xml"
+    },
+    {
+        "env": "PROD",
+        "apiName": "Player_SW_Indexer",
+        "name": "ping",
+        "targetUrl": "http://10.110.16.16:82/Bewo.Hub.Service/BewotecHubService.svc",
+        "httpMethod": "POST",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+            }
+        ]
+    },
+    {
+        "env": "PROD",
+        "apiName": "Player_SW_Indexer",
+        "name": "getPrices",
+        "targetUrl": "http://10.110.16.16:82/Bewo.Hub.Service/BewotecHubService.svc",
+        "httpMethod": "POST",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+            },
+            {
+                "name": "SOAPAction",
+                "value": "http://www.bewotec.de/bewotecws/Schema/BewotecHubService/GetProductOffers"
+            }
+        ],
+        "body": "request.xml"
+    },
+    {
+        "env": "PROD",
+        "apiName": "Player_SW_1",
+        "name": "ping",
+        "targetUrl": "http://10.110.16.17:82/Bewo.Hub.Service/BewotecHubService.svc",
+        "httpMethod": "POST",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+            }
+        ]
+    },
+    {
+        "env": "PROD",
+        "apiName": "Player_SW_1",
+        "name": "getPrices",
+        "targetUrl": "http://10.110.16.17:82/Bewo.Hub.Service/BewotecHubService.svc",
+        "httpMethod": "POST",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+            },
+            {
+                "name": "SOAPAction",
+                "value": "http://www.bewotec.de/bewotecws/Schema/BewotecHubService/GetProductOffers"
+            }
+        ],
+        "body": "request.xml"
+    },
+    {
+        "env": "PROD",
+        "apiName": "Player_SW_2",
+        "name": "ping",
+        "targetUrl": "http://10.110.16.18:82/Bewo.Hub.Service/BewotecHubService.svc",
+        "httpMethod": "POST",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+            }
+        ]
+    },
+    {
+        "env": "PROD",
+        "apiName": "Player_SW_2",
+        "name": "getPrices",
+        "targetUrl": "http://10.110.16.18:82/Bewo.Hub.Service/BewotecHubService.svc",
+        "httpMethod": "POST",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+            },
+            {
+                "name": "SOAPAction",
+                "value": "http://www.bewotec.de/bewotecws/Schema/BewotecHubService/GetProductOffers"
+            }
+        ],
+        "body": "request.xml"
+    },
+    {
+        "env": "PROD",
+        "apiName": "Player_SW_LB",
+        "name": "ping",
+        "targetUrl": "http://10.110.22.16:82/Bewo.Hub.Service/BewotecHubService.svc",
+        "httpMethod": "POST",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+            }
+        ]
+    },
+    {
+        "env": "PROD",
+        "apiName": "Player_SW_LB",
+        "name": "getPrices",
+        "targetUrl": "http://10.110.22.16:82/Bewo.Hub.Service/BewotecHubService.svc",
+        "httpMethod": "POST",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+            },
+            {
+                "name": "SOAPAction",
+                "value": "http://www.bewotec.de/bewotecws/Schema/BewotecHubService/GetProductOffers"
+            }
+        ],
+        "body": "request.xml"
     }
 ]
