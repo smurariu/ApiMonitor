@@ -15,6 +15,7 @@ const (
 )
 
 func main() {
+
 	// Create a new HTTPClient
 	c, err := client.NewHTTPClient(client.HTTPConfig{
 		Addr:     "http://10.10.18.167:8086",

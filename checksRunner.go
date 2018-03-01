@@ -59,7 +59,9 @@ func executeCheck(check Check, executionOutcome chan ExecutionOutcome) {
 	}
 
 	t1 := time.Now()
-	hc.Do(req)
+
+	response, _ := hc.Do(req)
+	response.Body.Close()
 
 	executionOutcome <- ExecutionOutcome{Name: check.Name, Duration: time.Now().Sub(t1), APIName: check.APIName, Environment: check.Env}
 }
