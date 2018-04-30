@@ -4,6 +4,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"net/url"
 	"os"
 	"time"
 )
@@ -14,6 +15,8 @@ type ExecutionOutcome struct {
 	Duration    time.Duration
 	Environment string
 	APIName     string
+	IsTimeout   bool
+	IsError     bool
 }
 
 // Execute runs the actual checks
@@ -36,6 +39,8 @@ func Execute(checks []Check) []ExecutionOutcome {
 
 func executeCheck(check Check, executionOutcome chan ExecutionOutcome) {
 	hc := http.Client{}
+	hc.Timeout = 60 * time.Second
+
 	var body io.Reader
 
 	if check.Body != "" {
@@ -69,5 +74,13 @@ func executeCheck(check Check, executionOutcome chan ExecutionOutcome) {
 		}
 	}
 
-	executionOutcome <- ExecutionOutcome{Name: check.Name, Duration: time.Now().Sub(t1), APIName: check.APIName, Environment: check.Env}
+	outcome := ExecutionOutcome{
+		Name:        check.Name,
+		Duration:    time.Now().Sub(t1),
+		APIName:     check.APIName,
+		Environment: check.Env,
+		IsTimeout:   err != nil && err.(*url.Error).Timeout(),
+		IsError:     err == nil && response.StatusCode >= 500}
+
+	executionOutcome <- outcome
 }

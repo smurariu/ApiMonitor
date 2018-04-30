@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
 	"time"
 
 	"github.com/influxdata/influxdb/client/v2"
@@ -15,10 +16,18 @@ const (
 )
 
 func main() {
+	f, err := os.OpenFile("apiChecker.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+
+	if err != nil {
+		log.Fatalf("error opening file: %v", err)
+	}
+
+	defer f.Close()
+	log.SetOutput(f)
 
 	// Create a new HTTPClient
 	c, err := client.NewHTTPClient(client.HTTPConfig{
-		Addr:     "http://10.10.18.167:8086",
+		Addr:     "http://localhost:8086",
 		Username: username,
 		Password: password,
 	})
@@ -34,7 +43,8 @@ func main() {
 		checksOutcomes := Execute(checks)
 
 		writeToInflux(c, checksOutcomes)
-		fmt.Printf(" %s\n", checksOutcomes)
+		//fmt.Printf(" %s\n", checksOutcomes)
+		fmt.Print(": Done running checks. \r\n")
 	}
 }
 
