@@ -1,0 +1,6 @@
+{
+  "name": "newResource",
+  "role": "testResource",
+  "validFor": "1min",
+  "onExpiry": "delete"
+}
